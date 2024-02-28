@@ -44,6 +44,7 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid #f5c6cb;
+    display: none;
 }
 
 
@@ -181,13 +182,14 @@ padding: 25px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .users .search .text{
 font-size: 18px;
 }
 
-.users.search input{
+.users .search input{
     position: absolute;
     height: 42px;
     width: calc(100% - 50px);
@@ -196,18 +198,32 @@ font-size: 18px;
     font-size: 16px;
     border-radius: 5px 0 0 -50px;
     outline: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
-
+.users .search input .active{
+    opacity: 1;
+    pointer-events: auto;
+}
 .users .search button{
     width: 47px;
     height: 42px;
     border: none;
     outline: none;
-    color: #fff;
-    background: #333;
+    color: #333;
+    background: #fff;
     cursor: pointer;
     font-size: 17px;
     border-radius: 0 5px 5px 0;
+}
+.users .search button .active{
+    color: #fff;
+    background: #333;
+}
+
+.users .search button .active i::before{
+    content: "\f00d";
 }
 
 .users-list{
